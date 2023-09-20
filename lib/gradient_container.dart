@@ -16,9 +16,18 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: Image.asset(
-          'assets/images/dice-5.png',
-          width: 200,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/images/dice-5.png',
+              width: 200,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const StyledText('Roll Dice'),
+            ),
+          ],
         ),
       ),
     );

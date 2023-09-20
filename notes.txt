@@ -1,0 +1,104 @@
+> What is Flutter? 
+: a UI framework(collection of packages and utility functions) to code apps(in Dart) for multiple platforms, 
+and also comes with a set of tools to convert this code to cross platform apps, i.e,
+flutter traslates a single codebase(in Dart) into platform specific machine code.
+
+: one codebase, multiple platforms(android, iOS, windows, linux, web, macOS)
+
+
+> Widgets: UI building blocks 
+
+> Flutter apps by default use material design (google's flexible design system, a set of suggestions, rules 
+and guidelines to make beautiful UIs, also highly customisable and extendable)
+
+> project structure:
+    1. .xyz : configuration files managed by flutter
+    2. android, ios, etc. : contain platorm specific files, used specially when we want to publish an app
+        in a particular platform.
+    3. build : temporary and output files are stored as the app is built
+    4. test : contains code to test the application
+    5. pubspec.yaml : contains reference to third party packages and images used in the app
+
+
+> Dart to machine code: dart code is parsed(read and analysed) from top to bottom and is compiled into native
+    patform machine code by flutter and dart tool, and then they are executed on those platforms.
+
+
+> How flutter apps become active: 
+    1. main(): function gets executed automatically by dart when executing the compiled app on the 
+        target device. lib/main.dart is the entry point of a flutter application.
+    2. runApp() : tells flutter which UI element(widget) to draw onto the screen. runApp() should be called
+        inside the main() function.
+    3. a widget tree(combination of nested flutter widgets) that is to be displayed on the screen should be 
+        passed as argument to the runApp() function. 
+
+> MaterialApp() is a core widget, which acts as a root widget which ensures the interface is shown
+    correctly. does some behind the scene configuration stuff. we pass this MaterialApp() widget as a 
+    parameter in runApp().
+
+> using named arguments gives us the advantage of passing arguments to functions in any order.
+> positional parameters are required and must not be omitted - on the other hand,
+     named arguments are optional and can be omitted.
+> a function can have a mixture of positional and named arguments.
+> We can change these behaviors, though. You can make positional arguments optional and named arguments required.
+
+> 'const' keyword helps dart to optimise runtime performance by reusing the same widget again if needed, and
+    avoids duplication of data in memory.
+
+> dart is a type-safe language, i.e., all values we are working with are of certain types.
+    Everything is atleast an object(top in hierarchy of types).
+
+> Scaffold is used to implement the basic layout structure for a screen
+    properties: appBar, body, FAB,
+
+> Container is useful for styling and layout settings
+    properties: decoration, 
+    
+> Generic types: flexible types that work together with other types
+
+> Text(' ', style: TextStyle(..)) for styling text.
+
+> build(context) method returns a widget. Flutter calls this function automatically when it renders the UI, 
+    and reflect the returned widget in the UI.
+
+> Constructor function of a widget must accept a named key parameter, which must be passed to the parent widget.  
+
+> 'dynamic' type is assigned as a type to a variable whose types is not initialised.
+
+> final: data will never be reassigned
+> const: data will never be reassigned using const too, but it makes the variable compile-time constant, i.e., if
+    we know for sure the concrete value of the variable at compile time only, we shoud use const, otherwise, if
+    the value of a varible is dynamically derived at runtime, then final should be used.
+
+> 'this': used to refer the class itself or to refer to the object of the class.
+
+> we can make out widgets customisable by accepting parameters in their constructors and then using them
+
+> we can define multiple convinience Constructor functions in the same class for our ease
+    ClassName.fun()
+
+> add images in assets/images and include them in pubspec.yaml, and use Image.asset('path') to use them
+
+> Column() and Row() widgets can be used to place multiple child widgets next to each other.
+
+> Column(): main axis is the vertical axis and by default, it occupies the entire available height but only
+    the width required by its content.
+
+> Row(): main axis is the horizontal axis and by default, it occupies the entire available width but only
+    the height required by its content.
+
+> we can use SizedBox() for making spaces between widgets(alternative to adding padding). it has a child
+    property which can display other widgets, but unlike other widgets like container or text which change 
+    their size as their content needs, SizedBox() has a fixed size, and the contents are cut off if their 
+    size exceeds the box size.
+
+> if we have a widget whose data is changed internally when the app is running, and we want to display 
+    those changes on the UI, we must use stateful widgets.
+    stateful widgets are managed using the state class. we use createState() to return a state of type of that
+    class, which can change.
+
+> StatelessWidget: doesn't manage internal data, and only updates the screen if parent widget updates(re-renders)
+    sould be your default and used as often as possible.
+
+> StatefulWidget: manages internal data(state), and when the state changes, the widget is re-rendered and the UI
+    is updated. Use whenever you have changing data that shoud cause UI updates.

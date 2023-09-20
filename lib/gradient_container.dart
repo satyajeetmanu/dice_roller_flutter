@@ -1,4 +1,4 @@
-import 'package:dice_roller/styled_text.dart';
+import 'package:dice_roller/dice_roller.dart';
 import 'package:flutter/material.dart';
 
 class GradientContainer extends StatelessWidget {
@@ -15,20 +15,8 @@ class GradientContainer extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/images/dice-5.png',
-              width: 200,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const StyledText('Roll Dice'),
-            ),
-          ],
-        ),
+      child: const Center(
+        child: DiceRoller(),
       ),
     );
   }
